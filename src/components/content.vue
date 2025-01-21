@@ -26,7 +26,7 @@ export default {
     <div class="shoeText">
       <ul>
         <!-- propsで受け取ったテキスト配列をループで表示 -->
-        <li v-for="(text, index) in textItems" :key="index">{{ text }}</li>
+        <li v-for="(text, index) in textItems">{{ text }}</li>
       </ul>
     </div>
   </div>
