@@ -1,19 +1,32 @@
 <script>
 export default {
-  name: 'Content'
+  name: 'Content',
+  // propsで外部からデータを受け取れるようにする
+  props: {
+    // 画像のパス
+    imageSrc: {
+      type: String,
+      required: true
+    },
+    // テキストの配列
+    textItems: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script>
 
 <template>
   <div class="content">
     <div class="image-container">
-      <img src="/img/premium.jpg" alt="Premium Image">
+      <!-- propsで受け取った画像パスを使用 -->
+      <img :src="imageSrc" alt="">
     </div>
     <div class="shoeText">
       <ul>
-        <li>Sample Text 1</li>
-        <li>Sample Text 2</li>
-        <li>Sample Text 3</li>
+        <!-- propsで受け取ったテキスト配列をループで表示 -->
+        <li v-for="(text, index) in textItems" :key="index">{{ text }}</li>
       </ul>
     </div>
   </div>
